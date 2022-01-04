@@ -47,13 +47,17 @@ let majorEarthquakes=new L.layerGroup();
 
 // Create the overlay layer
 let overlays={
+    "Categories":{
     Earthquakes:earthquakes,
-    "Tectonic Plates":tectonicPlates,
-    "Major Earthquakes":majorEarthquakes
-};
+    "Major Earthquakes":majorEarthquakes},
+    "Tectonic Plates":{
+        "Tectonic Plates":tectonicPlates,
+    }
+};  
 
+var options={exclusiveGroups:["Categories"]}
 // Add the layer group to the map
-L.control.layers(baseMaps,overlays).addTo(map);
+L.control.groupedLayers(baseMaps,overlays,options).addTo(map);
 
 // Custome function to define the style data for the map
 function styleInfo(feature){
@@ -177,7 +181,7 @@ d3.json(meLink).then(data=>{
             .bindPopup("Magnitude: "+feature.properties.mag+"<br>Location: "+feature.properties.place)
         }
     }).addTo(majorEarthquakes);
-    majorEarthquakes.addTo(map);
+    // majorEarthquakes.addTo(map);
 })
 // Creating a custom legend for major earthquakes and adding it to the map
 // Defining the position of the legend
@@ -200,7 +204,7 @@ meLegend.onAdd = function () {
     }
     return div;
 };
-meLegend.addTo(map);
+// meLegend.addTo(map);
 
 // Add legend if earthquakes layer is selected
 map.on('overlayadd', function (eventLayer) {
