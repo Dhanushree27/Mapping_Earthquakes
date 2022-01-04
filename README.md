@@ -12,7 +12,8 @@ This project was undertaken to develop earthquake maps that are informative and 
 - Overlay maps contain the below data:
     - Past 7 days of earthquake data from USGS color-coded by magnitudes, classified in increaments of 1 until 5
     - Tectonic plate reference lines, collected from github user fraxen, tectonicplates repository
-    - Major earthquakes greater than 4.5 in the past 7 days, from USGS. This is again color-coded by magnitude, classified until 6
+    - Major earthquakes greater than 4.5 in the past 7 days, from USGS. This is again color-coded by magnitude, classified until 6. Earthquake layers needs to be unchecked for this to be clearly visible
+    
     More than one layer can be selected at a time.
 
 - Legends containing information on the color-codes for earthquake and major earthquake layers. The legends will also be displayed/removed based on the layers selected
